@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="navbar max-w-1140 w-full px-4 mx-auto bg-white">
-      <div className="navbar-start">
+    <header className="max-w-1140 w-full px-4 mx-auto bg-white">
+      <nav className="flex justify-center items-center p-4">
         <div className="dropdown block md:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
@@ -48,11 +48,12 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <Link className="text-purple-600 text-lg hover:text-black" href="/">
+        <Link className=" text-purple-600 text-lg hover:text-black" href="/">
           STRIX
         </Link>
-        <div className="w-full flex flex-row justify-between hidden md:flex">
-          <ul className="flex flex-row list-none p-2">
+
+        <div className="flex w-full justify-end md:justify-between ">
+          <ul className="hidden flex-row list-none p-2 md:flex">
             <li className="">
               <Link className="no-underline py-2 px-4 text-purple-500" href="/">
                 Home
@@ -75,22 +76,21 @@ export default function Header() {
               </Link>
             </li>
           </ul>
+          <ul className="flex flex-row list-none p-2">
+            <li className="">
+              <Link className="no-underline py-2 px-4 text-purple-500" href="">
+                Login
+              </Link>
+            </li>
+            <li className="">
+              <Link className="no-underline py-2 px-4 text-purple-500" href="">
+                Register
+              </Link>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div className="navbar-end">
-        <ul className="flex flex-row list-none p-2">
-          <li className="">
-            <Link className="no-underline py-2 px-4 text-purple-500" href="">
-              Login
-            </Link>
-          </li>
-          <li className="">
-            <Link className="no-underline py-2 px-4 text-purple-500" href="">
-              Register
-            </Link>
-          </li>
-        </ul>
-      </div>
+
+      </nav>
     </header>
   );
 }

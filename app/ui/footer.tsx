@@ -2,8 +2,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="mt-auto">
-      <div className="bg-white p-4">
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="flex flex-col gap-5 md:flex-row md:justify-evenly bg-white p-12">
           <div className="flex flex-col justify-between">
             <div className="flex items-center">
               <Image
@@ -94,7 +93,6 @@ export default function Footer() {
             <p className="text-gray-600">Blog</p>
           </div>
         </div>
-      </div>
       <p className="text-center text-gray-400 text-xs py-4">
         © 2023 Strix. All rights reserved
       </p>
