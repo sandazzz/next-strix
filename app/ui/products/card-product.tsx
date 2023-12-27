@@ -1,6 +1,4 @@
-export default function cardProduct(){
-    return(
-    <div>
-        
-    </div>)
+
+export default function cardProduct() {
+  return <div></div>;
 }
