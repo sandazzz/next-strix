@@ -7,7 +7,7 @@ async function seedProducts(client) {
     // Create the "products" table if it doesn't exist
     const createTable = await client.sql`
         CREATE TABLE IF NOT EXISTS products (
-          id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+          id SERIAL PRIMARY KEY,
           image VARCHAR(255) NOT NULL,
           name VARCHAR(255) NOT NULL,
           game VARCHAR(255) NOT NULL,
@@ -23,12 +23,12 @@ async function seedProducts(client) {
 
     console.log(`Created "products" table`);
 
-    // Insert data into the "users" table
+    // Insert data into the "products" table
     const insertedProducts = await Promise.all(
       products.map(
         (product) => client.sql`
-            INSERT INTO users (id, image, name, game, description, lite_plan, standard_plan, extended_plan, lite_stripe_price, standard_stripe_price, extended_stripe_price)
-            VALUES (${product.id}, ${product.image}, ${product.name},${product.game}, ${product.description}, ${product.lite_plan}, ${product.standard_plan}, ${product.extended_plan}, ${product.lite_stripe_price}, ${standard_stripe_price}, ${product.extended_stripe_price})
+            INSERT INTO products (image, name, game, description, lite_plan, standard_plan, extended_plan, lite_stripe_price, standard_stripe_price, extended_stripe_price)
+            VALUES (${product.image}, ${product.name},${product.game}, ${product.description}, ${product.lite_plan}, ${product.standard_plan}, ${product.extended_plan}, ${product.lite_stripe_price}, ${product.standard_stripe_price}, ${product.extended_stripe_price})
             ON CONFLICT (id) DO NOTHING;
         `
       )
@@ -41,7 +41,7 @@ async function seedProducts(client) {
       products: insertedProducts,
     };
   } catch (error) {
-    console.error("Error seeding produccts:", error);
+    console.error("Error seeding products:", error);
     throw error;
   }
 }

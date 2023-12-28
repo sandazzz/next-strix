@@ -208,3 +208,7 @@ const products = [
     extended_stripe_price: "price_1O29beEkyNcc8YhbOfnQbDzH",
   },
 ];
+
+module.exports = {
+  products,
+};
