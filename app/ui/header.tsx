@@ -33,7 +33,7 @@ export default function Header() {
             <li className="">
               <Link
                 className="no-underline py-2 px-4 text-purple-500"
-                href="products"
+                href="/products"
               >
                 Products
               </Link>
@@ -41,7 +41,7 @@ export default function Header() {
             <li className="">
               <Link
                 className="no-underline py-2 px-4 text-purple-500"
-                href="cart"
+                href="/cart"
               >
                 Cart
               </Link>
@@ -62,7 +62,7 @@ export default function Header() {
             <li className="">
               <Link
                 className="no-underline py-2 px-4 text-purple-500"
-                href="products"
+                href="/products"
               >
                 Products
               </Link>
@@ -70,7 +70,7 @@ export default function Header() {
             <li className="">
               <Link
                 className="no-underline py-2 px-4 text-purple-500"
-                href="cart"
+                href="/cart"
               >
                 Cart
               </Link>
@@ -89,7 +89,6 @@ export default function Header() {
             </li>
           </ul>
         </div>
-
       </nav>
     </header>
   );
