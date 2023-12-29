@@ -11,7 +11,7 @@ export default function Footer() {
                 height={96}
                 alt="logo"
               />
-              <h1 className="font-bold text-2xl text-black">STRIX</h1>
+              <h1 className="text-2xl text-black">STRIX</h1>
             </div>
             <p className="text-xs text-gray-400">
               Your trusted source to find highly-vetted mentors
