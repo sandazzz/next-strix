@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { poppins } from "@/app/ui/fonts"; 
 import "./globals.css";
-import Header from "./ui/header";
-import Footer from "./ui/footer";
+import Header from "@/app/ui/header";
+import Footer from "@/app/ui/footer";
 
 export const metadata: Metadata = {
   title: "Next Strix",

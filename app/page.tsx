@@ -10,9 +10,9 @@ export default function Home() {
             Learn new techs, improve your skills and hit your dreamed rank
           </Link>
         </h1>
-        <div className="mx-auto my-12 md:my-6 w-3/4 flex flex-row justify-between bg-[#E0B0EF] py-2 px-6 rounded-lg shadow-lg md:mt-10 md:mb-16">
+        <div className="mx-auto my-12 w-3/4 md:w-1/2 flex flex-row justify-between items-center bg-[#E0B0EF] py-2 px-6 rounded-lg shadow-lg">
           <h2 className="font-semibold hidden md:block">Search by game, mentor or company</h2>
-          <input id="search" type="text" placeholder="Search mentor" />
+          <input type="text" placeholder="Type here" className="input input-bordered input-info w-full max-w-xs" />        
         </div>
       </section>
 

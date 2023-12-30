@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="max-w-1140 w-full px-4 mx-auto bg-white">
+    <header className="max-w-[1200px] w-full px-4 mx-auto bg-white">
       <nav className="flex justify-center items-center p-4">
         <div className="dropdown block md:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
