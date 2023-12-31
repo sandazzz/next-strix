@@ -1,5 +1,7 @@
 import { sql } from '@vercel/postgres';
 import { Product } from './definition';
+//import path from 'path';
+//import fs from 'fs';
 
 export async function fetchProducts(){
   try{
@@ -25,11 +27,7 @@ export async function fetchProduct({id}: {id: number}){
   }
 }
 
-/*import path from 'path';
-import fs from 'fs';
-import { Product } from '../lib/interfaces'; 
-
-export async function fetchProducts() : Promise<Product[]> {
+/*export async function fetchProducts() : Promise<Product[]> {
   // Construire le chemin absolu vers data.json dans le dossier public
   const filePath = path.join(process.cwd(), 'public', 'data.json');
 
