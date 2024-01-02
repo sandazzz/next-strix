@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-const stripe = require('stripe')('sk_test_51OACd6D72PzL52RmteorfV4aTi9ndYv6T4JOJr5XKa0q4Rf5r3XF1OvzLBVUoBjomR2gLkqj4fuEHuUQnrDyhmwI00iJC2ugOv');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req: NextApiRequest, res:NextApiResponse) {
   if (req.method === 'POST') {
