@@ -1,7 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
 
- export interface CartItem {
+const stripePromise = loadStripe(
+  "pk_test_51OACd6D72PzL52Rm3OuVz2WbGlshY6L0kF5Qg0LocPzOm4rrZibMnFzB08zg8aATl18eHVXROf6VTTiZL9x0A9Wk00zWIE3kbt"
+  );
+export interface CartItem {
   id: number;
   name: string;
   game: string;
@@ -24,7 +28,20 @@ export default function Cart() {
     setCartItems([]);
   };
 
-  const checkout = async () => {
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("success")) {
+      console.log("Order placed! You will receive an email confirmation.");
+    }
+
+    if (query.get("canceled")) {
+      console.log(
+        "Order canceled -- continue to shop around and checkout when you’re ready."
+      );
+    }
+  }, []);
+  /*const checkout = async () => {
     try {
       const body = {
         line_items: cartItems.map((product) => ({
@@ -33,7 +50,7 @@ export default function Cart() {
         })),
       };
 
-      const response = await fetch("/api/stripes", {
+      const response = await fetch("/api/checkout_sessions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +65,7 @@ export default function Cart() {
         error
       );
     }
-  };
+  };*/
 
   return (
     <main>
@@ -56,9 +73,11 @@ export default function Cart() {
       <button className="btn btn-active btn-ghost" onClick={clearCart}>
         Clear Cart
       </button>
-      <button className="btn btn-info" onClick={checkout}>
-        Checkout
-      </button>
+      <form action="/api/checkout_sessions" method="POST">
+        <button className="btn btn-info" type="submit" role="link">
+          Checkout
+        </button>
+      </form>
       <section className="flex flex-col items-center">
         {cartItems.map((item, index) => (
           <div

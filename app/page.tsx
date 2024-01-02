@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-white">
       <section id="main-title">
         <h1 className="text-center font-medium text-3xl p-5 text-[#9733b6]">
           <Link href="#products-homepage">
