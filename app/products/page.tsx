@@ -7,11 +7,14 @@ export default async function Products() {
   return (
     <main>
       <section id="product-container"
-        className="flex flex-col md:flex-row md:justify-center md:gap-7 md:flex-wrap p-12 place-content-center m-auto bg-[#4B105E] md:bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900">
+        className="flex flex-col md:flex-row md:justify-center md:gap-7 md:flex-wrap p-7 place-content-center m-auto bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900">
         {products.map((p) => (
           <div
             key={p.id}
-            className="mb-3 border-solid border-2 border-purple-400 bg-opacity-10 backdrop-filter backdrop-blur-md rounded-lg p-4 flex items-center gap-4"
+            className="flex items-center gap-4
+              w-[380px] h-[300px] 
+              mb-3 border-solid border-2 border-purple-400 rounded-lg p-4
+              bg-opacity-10 bg-white backdrop-filter backdrop-blur-md"
           >
             <Image
               width={181}
@@ -20,12 +23,12 @@ export default async function Products() {
               alt={p.name}
               className="rounded-md"
             />
-            <div className="text-white">
-              <h2>{p.name}</h2>
-              <h3 className="text-base">{p.game}</h3>
+            <div className="flex flex-col gap-2 text-white">
+              <h2 className="text-2xl">{p.name}</h2>
+              <h3 className="text-xl">{p.game}</h3>
               <p>{p.description}</p>
               <p>Starting from {p.lite_plan}€/month</p>
-              <Link href={`/products/${p.id}`} passHref>
+              <Link className="btn btn-outline btn-info" href={`/products/${p.id}`} passHref>
                 Voir les détails
               </Link>
             </div>
