@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(
-  "pk_test_51OACd6D72PzL52Rm3OuVz2WbGlshY6L0kF5Qg0LocPzOm4rrZibMnFzB08zg8aATl18eHVXROf6VTTiZL9x0A9Wk00zWIE3kbt"
-  );
+/*const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  );*/
 export interface CartItem {
   id: number;
   name: string;
