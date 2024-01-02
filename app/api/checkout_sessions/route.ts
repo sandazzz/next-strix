@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+/*import { NextApiRequest, NextApiResponse } from "next";
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -27,3 +27,4 @@ export async function POST(req: NextApiRequest, res:NextApiResponse) {
     res.status(405).end('Method Not Allowed');
   }
 }
+*/

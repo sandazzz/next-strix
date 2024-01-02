@@ -28,7 +28,7 @@ export default function Cart() {
     setCartItems([]);
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get("success")) {
@@ -40,32 +40,7 @@ export default function Cart() {
         "Order canceled -- continue to shop around and checkout when you’re ready."
       );
     }
-  }, []);
-  /*const checkout = async () => {
-    try {
-      const body = {
-        line_items: cartItems.map((product) => ({
-          price: product.key,
-          quantity: 1,
-        })),
-      };
-
-      const response = await fetch("/api/checkout_sessions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-      const session = await response.json();
-      window.location.href = session.url;
-    } catch (error) {
-      console.error(
-        "Erreur lors de la création de la session de paiement :",
-        error
-      );
-    }
-  };*/
+  }, []);*/
 
   return (
     <main>
