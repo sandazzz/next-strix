@@ -48,11 +48,11 @@ export default function Cart() {
       <button className="btn btn-active btn-ghost" onClick={clearCart}>
         Clear Cart
       </button>
-      <form action="/api/checkout_sessions" method="POST">
+      {/*<form action="/api/checkout_sessions" method="POST">
         <button className="btn btn-info" type="submit" role="link">
           Checkout
         </button>
-      </form>
+  </form>*/}
       <section className="flex flex-col items-center">
         {cartItems.map((item, index) => (
           <div
