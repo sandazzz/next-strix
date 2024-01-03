@@ -14,7 +14,7 @@ const products = [
   },
   {
     id: 2,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-7848986.webp",
     name: "Coach 2",
     game: "Apex Legends",
     description: "This is a description",
