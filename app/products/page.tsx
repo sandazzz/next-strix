@@ -7,12 +7,12 @@ export default async function Products() {
   return (
     <main>
       <section id="product-container"
-        className="flex flex-col md:flex-row md:justify-center md:gap-7 md:flex-wrap p-7 place-content-center m-auto bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900">
+        className="flex flex-col items-center md:flex-row md:justify-center md:gap-7 md:flex-wrap p-7 m-auto bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900">
         {products.map((p) => (
           <div
             key={p.id}
             className="flex items-center gap-4
-              w-[380px] h-[300px] 
+              w-[370px] h-[300px] 
               mb-3 border-solid border-2 border-purple-400 rounded-lg p-4
               bg-opacity-10 bg-white backdrop-filter backdrop-blur-md"
           >
