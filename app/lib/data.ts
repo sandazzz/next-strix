@@ -3,6 +3,11 @@ import { Product } from './definition';
 //import path from 'path';
 //import fs from 'fs';
 
+export async function fetchTwoProducts(){
+  const data = await sql<Product>`SELECT * FROM products LIMIT 2;`
+  return data.rows
+}
+
 export async function fetchProducts(){
   try{
     console.log('Fetching products data...');
