@@ -7,7 +7,6 @@ export async function fetchProducts(){
   try{
     console.log('Fetching products data...');
     const data = await sql<Product>`SELECT * FROM products`
-    console.log(data.rows)
     return data.rows
   }
   catch (error) {

@@ -27,7 +27,7 @@ const products = [
   },
   {
     id: 3,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-18269631.webp",
     name: "Coach 3",
     game: "Rocket League",
     description: "This is a description",
@@ -40,7 +40,7 @@ const products = [
   },
   {
     id: 4,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-18305043.webp",
     name: "Coach 4",
     game: "Valorant",
     description: "This is a description",
@@ -53,7 +53,7 @@ const products = [
   },
   {
     id: 5,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-18271625.webp",
     name: "Coach 5",
     game: "LoL",
     description: "This is a description",
@@ -79,7 +79,7 @@ const products = [
   },
   {
     id: 7,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-18305043.webp",
     name: "Coach 7",
     game: "Apex Legends",
     description: "This is a description",
@@ -92,7 +92,7 @@ const products = [
   },
   {
     id: 8,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-18347304.webp",
     name: "Coach 8",
     game: "Rocket League",
     description: "This is a description",
@@ -118,7 +118,7 @@ const products = [
   },
   {
     id: 10,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-18347304.webp",
     name: "Coach 10",
     game: "LoL",
     description: "This is a description",
@@ -131,7 +131,7 @@ const products = [
   },
   {
     id: 11,
-    image: "/assets/pexels-yan-krukau-9072305.jpg",
+    image: "/assets/pexels-photo-7848986.webp",
     name: "Coach 11",
     game: "CS:GO",
     description: "This is a description",
