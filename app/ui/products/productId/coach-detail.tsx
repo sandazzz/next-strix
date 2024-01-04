@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Product } from "@/app/lib/definition";
-import VanillaTilt from 'vanilla-tilt';
+import VanillaTilt from "vanilla-tilt";
 
 interface CoachCardProps {
   coachData: Product;
@@ -42,16 +42,16 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
 
     // Récupère les éléments du localStorage ou crée un tableau vide s'il n'y en a pas encore
     const cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    console.log(cart)
-    console.log("done")
+    console.log(cart);
+    console.log("done");
     cart.push(cartItem);
     // Enregistre le tableau mis à jour dans le localStorage
     localStorage.setItem("cartItems", JSON.stringify(cart));
   };
 
   useEffect(() => {
-    const element : any = document.querySelector(".coachCard");
-    VanillaTilt.init((element), {
+    const element: any = document.querySelector(".coachCard");
+    VanillaTilt.init(element, {
       max: 35,
       startX: -20, // the starting tilt on the Y axis, in degrees.
 
@@ -86,21 +86,21 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
           <button
             onClick={() => handlePlanChange("lite_plan")}
             type="button"
-            className="lite-plan w-24 h-12 bg-[#AD1FDB] rounded-lg"
+            className="lite-plan w-24 h-12 bg-[#AD1FDB] rounded-lg transition duration-500 hover:bg-blue-400"
           >
             Lite plan
           </button>
           <button
             onClick={() => handlePlanChange("standard_plan")}
             type="button"
-            className="standard-plan w-24 h-12 bg-[#7A169C] rounded-lg"
+            className="standard-plan w-24 h-12 bg-[#7A169C] rounded-lg transition duration-500 hover:bg-blue-400"
           >
             Standard plan
           </button>
           <button
             onClick={() => handlePlanChange("extended_plan")}
             type="button"
-            className="extended-plan w-24 h-12 bg-[#480D5C] rounded-lg"
+            className="extended-plan w-24 h-12 bg-[#480D5C] rounded-lg transition duration-500 hover:bg-blue-400"
           >
             Extended plan
           </button>
@@ -112,7 +112,7 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
         <button
           onClick={addToCart}
           type="button"
-          className="add-to-cart w-28 h-10 bg-[#3648e4] rounded-lg"
+          className="add-to-cart w-28 h-10 bg-[#3648e4] rounded-lg transition duration-500 hover:bg-blue-400"
         >
           Add to cart
         </button>
