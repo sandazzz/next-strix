@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "@/app/ui/productCard.module.css";
 import Image from "next/image";
 import { Product } from "@/app/lib/definition";
 import VanillaTilt from 'vanilla-tilt';
@@ -69,7 +68,7 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
       id="coach-profile"
       className="flex flex-col items-center py-10 md:flex-row md:justify-evenly "
     >
-      <div className={`${styles.coachData} coachCard`}>
+      <div className="coachCard flex flex-col align-center relative w-[290px] h-[370px] rounded-[20px] bg-white bg-opacity-10 shadow-2xl">
         <div className="w-[250px] h-[250px] m-[20px]">
           <Image
             src={coachData.image}
@@ -82,7 +81,7 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
         <h2 className="text-center text-white">{coachData.name}</h2>
         <h3 className="text-center text-white">{coachData.game}</h3>
       </div>
-      <div className={`${styles.productPrice} text-white`}>
+      <div className="flex flex-col items-center gap-[30px] w-[360px] md:w-[500px] h-auto rounded-[20px] border-2 border-solid border-[#B620E8] p-5 bg-white bg-opacity-10 shadow-2xl text-white">
         <div className="flex gap-4 items-center">
           <button
             onClick={() => handlePlanChange("lite_plan")}
