@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { VanillaTilt } from "@/app/ui/vanilla-tilt";
 import styles from "@/app/ui/productCard.module.css";
 import Image from "next/image";
 import { Product } from "@/app/lib/definition";
+import VanillaTilt from 'vanilla-tilt';
 
 interface CoachCardProps {
   coachData: Product;
@@ -51,7 +51,8 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
   };
 
   useEffect(() => {
-    VanillaTilt.init(document.querySelectorAll(".coachCard"), {
+    const element : any = document.querySelector(".coachCard");
+    VanillaTilt.init((element), {
       max: 35,
       startX: -20, // the starting tilt on the Y axis, in degrees.
 
