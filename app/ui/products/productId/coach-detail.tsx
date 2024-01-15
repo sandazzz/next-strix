@@ -10,7 +10,7 @@ interface CoachCardProps {
 type PlanType = "lite_plan" | "standard_plan" | "extended_plan";
 
 export default function CoachDetail({ coachData }: CoachCardProps) {
-  const [selectedPlan, setSelectedPlan] = useState<PlanType>("extended_plan");
+  const [selectedPlan, setSelectedPlan] = useState<PlanType>("standard_plan");
 
   const handlePlanChange = (plan: PlanType) => {
     setSelectedPlan(plan);
@@ -42,8 +42,7 @@ export default function CoachDetail({ coachData }: CoachCardProps) {
 
     // Récupère les éléments du localStorage ou crée un tableau vide s'il n'y en a pas encore
     const cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    console.log(cart);
-    console.log("done");
+    //console.log(cart);
     cart.push(cartItem);
     // Enregistre le tableau mis à jour dans le localStorage
     localStorage.setItem("cartItems", JSON.stringify(cart));
