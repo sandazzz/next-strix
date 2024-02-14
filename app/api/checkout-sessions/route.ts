@@ -9,7 +9,7 @@ export async function POST(request: Request, res: any) {
     line_items: requestBody,
     mode: "subscription",
     success_url: `http://localhost:3000/cart`,
-    cancel_url: `http://localhost:3000/`,
+    cancel_url: `http://localhost:3000/cart`,
   });
   return NextResponse.json(session.url);
 }
