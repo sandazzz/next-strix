@@ -1,11 +1,7 @@
 import { fetchProduct } from "@/app/lib/data";
 import CoachDetail from "@/app/ui/products/productId/coach-detail";
 
-export default async function ProductDetail({
-  params,
-}: {
-  params: { productId: number };
-}) {
+export default async function ProductDetail({ params, }: { params: { productId: number };}) {
   const product = await fetchProduct({ id: params.productId });
   return (
     <main

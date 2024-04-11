@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="max-w-[1200px] w-full px-4 mx-auto bg-white">
-      <nav className="flex justify-center items-center p-4">
+    <header className="sticky top-0 z-50 w-full h-16 px-4 bg-white flex justify-center border-neutral-200 border-b ">
+      <nav className="w-full max-w-[1200px] flex justify-center items-center p-4">
         <div className="dropdown block md:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
@@ -48,6 +48,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
+        
         <Link className=" text-purple-600 text-lg hover:text-black" href="/">
           STRIX
         </Link>
