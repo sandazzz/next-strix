@@ -77,7 +77,7 @@ export default function Header() {
               </Link>
             </li>
           </ul>
-          <ul className="flex flex-row list-none p-2">
+          {/*<ul className="flex flex-row list-none p-2">
             <li className="">
               <Link className="no-underline py-2 px-4 text-purple-500" href="">
                 Login
@@ -88,7 +88,7 @@ export default function Header() {
                 Register
               </Link>
             </li>
-          </ul>
+          </ul>*/}
         </div>
       </nav>
     </header>

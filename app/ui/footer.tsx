@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto">
+    <footer>
       <div className="flex flex-col gap-5 md:flex-row md:justify-evenly bg-white p-5">
           <div className="flex flex-col justify-between">
             <div className="flex items-center">

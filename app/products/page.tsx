@@ -1,13 +1,30 @@
+//"use client";
 import { fetchProducts } from "@/app/lib/data";
 import Image from "next/image";
 import Link from "next/link";
+//import { useState } from "react";
 
 export default async function Products() {
+  //const [name, setName] = useState("");
+
   const products = await fetchProducts();
+
+  //const handleChange = (event) => {};
   return (
     <main>
-      <section id="product-container"
-        className="flex flex-col items-center md:flex-row md:justify-center md:gap-7 md:flex-wrap p-7 m-auto bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900">
+      
+        {/*<div id="search-bar" className="h-16 flex justify-center items-center">
+        <input
+          type="text"
+          placeholder="Filter by game"
+          className="input input-bordered input-primary w-full max-w-xs"
+          //onChange={handleChange()}
+        /> </div>*/}
+     
+      <section
+        id="product-container"
+        className="flex flex-col items-center md:flex-row md:justify-center md:gap-7 md:flex-wrap p-7 m-auto bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900"
+      >
         {products.map((p) => (
           <div
             key={p.id}
@@ -28,7 +45,11 @@ export default async function Products() {
               <h3 className="text-xl">{p.game}</h3>
               <p>{p.description}</p>
               <p>Starting from {p.lite_plan}€/month</p>
-              <Link className="btn btn-outline btn-info" href={`/products/${p.id}`} passHref>
+              <Link
+                className="btn btn-outline btn-info"
+                href={`/products/${p.id}`}
+                passHref
+              >
                 Voir les détails
               </Link>
             </div>
