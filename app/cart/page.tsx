@@ -45,8 +45,10 @@ export default function Cart() {
     if (response.ok) {
       const data = await response.json();
       console.log("Checkout session created:", data);
+      clearCart()
       // Rediriger l'utilisateur vers la session de paiement
       window.location.href = data;
+      
     }
   };
   return (

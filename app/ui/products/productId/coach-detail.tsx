@@ -4,12 +4,9 @@ import Image from "next/image";
 import { Product } from "@/app/lib/definition";
 import VanillaTilt from "vanilla-tilt";
 
-interface CoachCardProps {
-  coachData: Product;
-}
 type PlanType = "lite_plan" | "standard_plan" | "extended_plan";
 
-export default function CoachDetail({ coachData }: CoachCardProps) {
+export default function CoachDetail({ coachData }: {coachData :Product}) {
   const [selectedPlan, setSelectedPlan] = useState<PlanType>("standard_plan");
 
   const handlePlanChange = (plan: PlanType) => {

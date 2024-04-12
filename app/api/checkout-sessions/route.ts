@@ -8,7 +8,7 @@ export async function POST(request: Request, res: any) {
   const session = await stripe.checkout.sessions.create({
     line_items: requestBody,
     mode: "subscription",
-    success_url: `http://localhost:3000/cart`,
+    success_url: `http://localhost:3000/success`,
     cancel_url: `http://localhost:3000/cart`,
   });
   return NextResponse.json(session.url);
