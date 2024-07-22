@@ -1,10 +1,10 @@
 import Link from "next/link";
-import GridOfGame from "../ui/main/GridOfGame";
 import { fetchTwoProducts } from "@/app/lib/data";
+import GridOfGame from "../ui/main/GridOfGame";
 import MainPageProduct from "../ui/main/MainPageProduct";
 
 export default async function Home() {
-  const products = await fetchTwoProducts();
+  const products= await fetchTwoProducts();
   return (
     <main className=" bg-white min-h-screen w-full flex flex-col justify-evenly items-center">
       <section
@@ -27,8 +27,8 @@ export default async function Home() {
         id="product-container"
         className="w-full h-min p-7 flex flex-col items-center md:flex-row md:justify-center gap-7 bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900"
       >
-        {products.map((p) => (
-          <MainPageProduct key={p.id} product={p}></MainPageProduct>
+        {products.map((product) => (
+          <MainPageProduct key={product.id} product={product}></MainPageProduct>
         ))}
       </section>
     </main>
