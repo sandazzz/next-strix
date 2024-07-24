@@ -16,7 +16,7 @@ export default function MainPageProduct({ product }: {product : Product}) {
         <h2 className="mb-2 text-xl font-bold">{product.name}</h2>
         <h3 className="mb-2 text-lg text-indigo-100">{product.game}</h3>
         <p className="mb-2">{product.description}</p>
-        <p className="mb-2 text-yellow-300 font-bold">
+        <p className="mb-2 font-bold">
           Starting from
           <span className="text-2xl">{product.lite_plan}€</span>/month
         </p>

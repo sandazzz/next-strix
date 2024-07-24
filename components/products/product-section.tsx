@@ -19,6 +19,7 @@ export default function ProductSection({ products }: { products: any }) {
       setFiltredProduct(newProduct);
     }
   };
+  
   return (
     <>
       <div
