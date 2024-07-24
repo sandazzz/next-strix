@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Product } from "@/app/lib/definition";
+import { Product } from "@/lib/definition";
 import VanillaTilt from "vanilla-tilt";
 
 type PlanType = "lite_plan" | "standard_plan" | "extended_plan";

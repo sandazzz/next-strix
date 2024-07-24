@@ -1,5 +1,5 @@
-import { fetchProducts } from "@/app/lib/data";
-import ProductSection from "@/app/ui/products/ProductSection";
+import { fetchProducts } from "@/lib/data";
+import ProductSection from "@/ui/products/product-section";
 
 export default async function Products() {
   const products = await fetchProducts();

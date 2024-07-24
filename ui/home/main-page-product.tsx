@@ -1,4 +1,4 @@
-import { Product } from "@/app/lib/definition";
+import { Product } from "@/lib/definition";
 import Image from "next/image";
 import Link from "next/link";
 

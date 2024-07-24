@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Product } from "@/app/lib/definition";
+import { Product } from "@/lib/definition";
 
 export default function ProductSection({ products }: { products: any }) {
   const [filtredProduct, setFiltredProduct] = useState(products);
