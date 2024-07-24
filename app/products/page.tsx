@@ -1,5 +1,5 @@
 import { fetchProducts } from "@/lib/data";
-import ProductSection from "@/ui/products/product-section";
+import ProductSection from "@/components/products/product-section";
 
 export default async function Products() {
   const products = await fetchProducts();

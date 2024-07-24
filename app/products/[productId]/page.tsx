@@ -1,5 +1,5 @@
 import { fetchProduct } from "@/lib/data";
-import CoachDetail from "@/ui/products/product-id/coach-detail";
+import CoachDetail from "@/components/products/product-id/coach-detail";
 
 export default async function ProductDetail({ params, }: { params: { productId: number };}) {
   const product = await fetchProduct({ id: params.productId });
