@@ -19,7 +19,7 @@ export default function ProductSection({ products }: { products: any }) {
       setFiltredProduct(newProduct);
     }
   };
-  
+
   return (
     <>
       <div
@@ -37,32 +37,44 @@ export default function ProductSection({ products }: { products: any }) {
         {filtredProduct.map((p: Product) => (
           <div
             key={p.id}
-            className="flex items-center gap-4
-              w-[370px] h-[300px] 
-              mb-3 border-solid border-2 border-purple-400 rounded-lg p-4
-              bg-opacity-10 bg-white backdrop-filter backdrop-blur-md"
+            className="flex flex-col w-[320px] h-auto mb-4 border border-gray-200 rounded-xl overflow-hidden shadow-md transition-transform transform hover:scale-95 hover:shadow-lg bg-white"
           >
             <Image
-              width={181}
-              height={267}
+              width={320}
+              height={200}
               src={p.image}
               alt={p.name}
-              className="rounded-md"
+              className="w-full h-48 object-cover"
             />
-            <div className="flex flex-col gap-2 text-white">
-              <h2 className="text-2xl">{p.name}</h2>
-              <h3 className="text-xl">{p.game}</h3>
-              <p>{p.description}</p>
-              <p>Starting from {p.lite_plan}€/month</p>
+            <div className="flex flex-col gap-3 p-4">
+              <h2 className="text-2xl font-bold text-gray-900">{p.name}</h2>
+              <h3 className="text-lg font-medium text-gray-700">{p.game}</h3>
+              <p className="text-sm text-gray-600">{p.description}</p>
+              <p className="text-sm font-semibold text-gray-900">Starting from {p.lite_plan}€/month</p>
               <Link
-                className="btn btn-outline btn-info"
+                className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href={`/products/${p.id}`}
                 passHref
               >
                 Voir les détails
+                <svg
+                  className="ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1.707-10.707a1 1 0 00-1.414-1.414L7 9.586 5.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </Link>
             </div>
           </div>
+
+
         ))}
       </div>
     </>
