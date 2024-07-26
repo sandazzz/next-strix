@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default async function GridOfGame() {
   return (
-    <section
+    <div
       id="games-section"
       className="my-7 flex flex-col md:items-center md:justify-center md:flex-row"
     >
@@ -56,6 +56,6 @@ export default async function GridOfGame() {
           alt=""
         />
       </div>
-    </section>
+    </div>
   );
 }
