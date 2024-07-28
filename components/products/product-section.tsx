@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/definition";
 
-export default function ProductSection({ products }: { products: any }) {
+export default function ProductSection({ products }: { products: Product[] }) {
   const [filtredProduct, setFiltredProduct] = useState(products);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,7 +13,7 @@ export default function ProductSection({ products }: { products: any }) {
       return;
     } else {
       const inputValue = event.target.value.toLowerCase();
-      const newProduct = products.filter((product: any) =>
+      const newProduct = products.filter((product: Product) =>
         product.game.toLowerCase().includes(inputValue)
       );
       setFiltredProduct(newProduct);

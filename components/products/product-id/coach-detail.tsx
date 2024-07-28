@@ -46,7 +46,7 @@ export default function CoachDetail({ coachData }: {coachData :Product}) {
   };
 
   useEffect(() => {
-    const element: any = document.querySelector(".coachCard");
+    const element = document.querySelector(".coachCard") as HTMLElement;
     VanillaTilt.init(element, {
       max: 35,
       startX: -20, // the starting tilt on the Y axis, in degrees.
