@@ -128,7 +128,7 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
           )}
           disabled={cart == false}
         >
-          {cart == false ? "Add to cart" : "Added"}
+          {cart == false ? "Added" : "Add to cart"}
         </button>
       </div>
     </section>
