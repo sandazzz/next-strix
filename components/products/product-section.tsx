@@ -44,6 +44,7 @@ export default function ProductSection({ products }: { products: Product[] }) {
               height={200}
               src={p.image}
               alt={p.name}
+              priority={true}
               className="w-full h-48 object-cover"
             />
             <div className="flex flex-col gap-3 p-4">
