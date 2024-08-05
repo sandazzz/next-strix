@@ -25,22 +25,21 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
   const handlePlanChange = (plan: PlanType) => {
     setSelectedPlan(plan);
   };
-  
-  const addToCart = () => {
-    const planMapping = {
-      lite_plan: coachData.lite_stripe_price,
-      standard_plan: coachData.standard_stripe_price,
-      extended_plan: coachData.extended_stripe_price,
-    };
 
-    const stripe_key = planMapping[selectedPlan];
+  function addToCart() {
+    const stripeKey =
+      selectedPlan === "lite_plan"
+        ? coachData.lite_stripe_price
+        : selectedPlan === "standard_plan"
+          ? coachData.standard_stripe_price
+          : coachData.extended_stripe_price;
 
     const cartItem = {
       id: coachData.id,
       name: coachData.name,
       game: coachData.game,
       price: coachData[selectedPlan],
-      key: stripe_key,
+      key: stripeKey,
     };
 
     const cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
@@ -48,7 +47,7 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
     localStorage.setItem("cartItems", JSON.stringify(cart));
 
     setCart(false);
-  };
+  }
 
   return (
     <section
