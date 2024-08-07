@@ -18,8 +18,6 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
     speed: 300,
     glare: true,
     "max-glare": 1,
-    gyroscope: true, // Boolean to enable/disable device orientation detection,
-    gyroscopeMinAngleX: -45, // This is the bottom limit of the device angle on X axis, meaning that a device rotated at this angle would tilt the element as if the mouse was on the left border of the element;
   };
 
   const handlePlanChange = (plan: PlanType) => {
