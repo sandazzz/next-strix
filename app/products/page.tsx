@@ -7,7 +7,7 @@ export default async function Products() {
   return (
     <main
       id="product-container"
-      className="w-full min-h-screen bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900"
+      className="w-full min-h-screen p-7 bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900"
     >
       <ProductSection products={products} />
     </main>

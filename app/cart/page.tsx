@@ -27,6 +27,8 @@ export default function Cart() {
   };
 
   const checkout = async () => {
+    if (cartItems.length === 0) return; // Empêcher le checkout si le panier est vide
+
     setLoading(true);
     const body = cartItems.map((item) => ({
       price: item.key,

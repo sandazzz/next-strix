@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { fetchTwoProducts } from "@/lib/data";
 import GridOfGame from "../../components/home/grid-of-game";
-import MainPageProduct from "../../components/home/main-page-product";
+import MainPageProduct from "../../components/home/product";
 
 export default async function Home() {
   const products = await fetchTwoProducts();
