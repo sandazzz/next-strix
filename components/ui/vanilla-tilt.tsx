@@ -20,8 +20,8 @@ export default function Tilt({ children, className, options }: TiltProps) {
     const currentTiltRef = tiltRef.current;
     currentTiltRef ? VanillaTilt.init(currentTiltRef, options || {}) : null;
 
-    /*return () =>
-      currentTiltRef?.vanillaTilt && currentTiltRef.vanillaTilt.destroy();*/
+    return () =>
+      currentTiltRef?.vanillaTilt && currentTiltRef.vanillaTilt.destroy();
   }, [options]);
 
   return (
