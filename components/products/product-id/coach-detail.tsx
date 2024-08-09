@@ -14,6 +14,7 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
   const options = {
     max: 35,
     startX: -20, // the starting tilt on the Y axis, in degrees.
+    gyroscope: false, // Boolean to enable/disable device orientation detection,
 
     speed: 300,
     glare: true,
