@@ -9,15 +9,6 @@ type PlanType = "lite_plan" | "standard_plan" | "extended_plan";
 export default function CoachDetail({ coachData }: { coachData: Product }) {
   const [selectedPlan, setSelectedPlan] = useState<PlanType>("standard_plan");
   const [cart, setCart] = useState<Boolean>(true);
-  const options = {
-    max: 35,
-    startX: -20, // the starting tilt on the Y axis, in degrees.
-    gyroscope: false, // Boolean to enable/disable device orientation detection,
-
-    speed: 300,
-    glare: true,
-    "max-glare": 1,
-  };
 
   const handlePlanChange = (plan: PlanType) => {
     setSelectedPlan(plan);
