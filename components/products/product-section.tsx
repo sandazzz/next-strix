@@ -27,7 +27,7 @@ export default function ProductSection({ products }: { products: Product[] }) {
         <input
           type="text"
           placeholder="Filter by game"
-          className="input input-bordered input-primary w-full max-w-sm"
+          className="w-full max-w-sm rounded-md border border-gray-300 p-2 focus:outline-none focus:ring focus:ring-purple-300"
           onChange={handleChange}
         />
       </div>
