@@ -27,14 +27,13 @@ export default function Cart() {
   };
 
   const checkout = async () => {
-    if (cartItems.length === 0) return; // Empêcher le checkout si le panier est vide
+    if (cartItems.length === 0) return; // Prevent checkout if cart is empty
 
     setLoading(true);
     const body = cartItems.map((item) => ({
       price: item.key,
       quantity: 1,
     }));
-    console.log(body);
 
     try {
       const response = await fetch("/api/checkout-sessions", {
@@ -45,13 +44,11 @@ export default function Cart() {
         },
         body: JSON.stringify(body),
       });
-      console.log(response);
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Checkout session created:", data);
         clearCart();
-        // Rediriger l'utilisateur vers la session de paiement
+        // Redirect user to the payment session
         window.location.href = data;
       } else {
         setLoading(false);
@@ -63,39 +60,47 @@ export default function Cart() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-r from-violet-500 to-fuchsia-500 p-7 text-white md:px-16">
-      <h1 className="mb-6 text-4xl font-bold">Your Cart</h1>
-      <div className="mb-4 flex w-full justify-center">
+    <main className="flex min-h-screen flex-col items-center bg-gradient-to-br from-gray-900 via-purple-800 to-indigo-900 p-6 text-white sm:p-10">
+      <h1 className="mb-8 text-3xl font-bold sm:text-4xl">Your Cart</h1>
+
+      {/* Actions */}
+      <div className="mb-6 flex w-full justify-center gap-4 sm:w-auto">
         <button
-          className="mr-4 transform rounded-lg bg-red-500 px-6 py-2 font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-red-600"
+          className="rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
           onClick={clearCart}
         >
           Clear Cart
         </button>
         <button
-          className="transform rounded-lg bg-blue-500 px-6 py-2 font-bold text-white shadow-md transition-transform hover:scale-105 hover:bg-blue-600"
+          className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:cursor-not-allowed disabled:bg-blue-400"
           onClick={checkout}
           disabled={loading}
         >
           {loading ? "Processing..." : "Checkout"}
         </button>
       </div>
-      <section className="mt-6 flex w-full flex-grow flex-col items-center">
+
+      {/* Cart Items */}
+      <section className="mt-4 flex w-full flex-col items-center">
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div
-              className="mb-4 flex w-full items-center justify-between rounded-lg bg-white p-4 text-gray-800 shadow-md md:max-w-xl"
               key={item.id}
+              className="mb-4 flex w-full max-w-md items-center justify-between rounded-lg bg-gray-800 p-4 text-white shadow-lg transition hover:scale-105 sm:max-w-lg"
             >
               <div>
-                <h3 className="text-lg font-semibold">{item.name}</h3>
-                <p className="text-sm text-gray-500">{item.game}</p>
+                <h3 className="text-lg font-bold">{item.name}</h3>
+                <p className="text-sm text-gray-400">{item.game}</p>
               </div>
-              <div className="text-lg font-bold">{item.price} €</div>
+              <div className="text-lg font-semibold text-teal-400">
+                {item.price} €
+              </div>
             </div>
           ))
         ) : (
-          <p className="mt-4 text-xl">Your cart is empty.</p>
+          <p className="mt-8 text-lg text-gray-300 sm:text-xl">
+            Your cart is empty.
+          </p>
         )}
       </section>
     </main>

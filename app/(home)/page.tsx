@@ -1,33 +1,41 @@
 import Link from "next/link";
 import { fetchTwoProducts } from "@/lib/data";
-import GridOfGame from "../../components/home/grid-of-game";
-import MainPageProduct from "../../components/home/product";
+import GridOfGame from "@/components/home/grid-of-game";
+import MainPageProduct from "@/components/home/product";
 
 export default async function Home() {
   const products = await fetchTwoProducts();
+
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="">
+      {/* Hero Section */}
       <section
-        id="main-title"
-        className="flex min-h-screen w-full flex-col items-center justify-center gap-6 bg-gradient-to-tl from-purple-900 via-indigo-900 to-blue-900 p-8 text-white"
+        id="hero-section"
+        className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-tr from-indigo-800 via-purple-700 to-blue-900 p-8 text-center text-white"
       >
-        <h1 className="transform text-center text-3xl font-bold transition-transform hover:scale-105 md:text-4xl">
-          <Link href="#product-container">
-            Learn new techs, improve your skills and hit your dreamed rank
-          </Link>
+        <h1 className="text-3xl font-extrabold md:text-5xl">
+          Master Your Skills with Tailored Coaching
         </h1>
-        <h2 className="mt-4 text-center text-xl font-semibold md:text-2xl">
-          Search by game, mentor, or company
-        </h2>
+        <p className="mt-4 text-lg md:text-2xl">
+          Choose your favorite game, connect with mentors, and rise to the top!
+        </p>
+        <Link
+          href="#products-section"
+          className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-semibold text-blue-800 transition duration-200 hover:bg-blue-800 hover:text-white focus:outline-none"
+        >
+          Explore Coaches
+        </Link>
+
         <GridOfGame />
       </section>
 
+      {/* Products Section */}
       <section
-        id="product-container"
-        className="flex min-h-screen w-full flex-col items-center justify-center bg-gradient-to-tr from-blue-900 via-indigo-900 to-purple-900"
+        id="products-section"
+        className="flex min-h-screen w-full flex-col items-center justify-center bg-gradient-to-tr from-blue-600 via-indigo-800 to-purple-700 p-8 text-center text-white"
       >
-        <h1 className="text-center text-3xl font-bold text-white md:text-4xl">
-          In a click : A dedicated coatch to improve your skills
+        <h1 className="text-center text-2xl font-bold text-white md:text-4xl">
+          In a click : A dedicated coach to improve your skills
         </h1>
 
         <div className="mt-10 flex w-full items-center justify-center max-sm:flex-col">

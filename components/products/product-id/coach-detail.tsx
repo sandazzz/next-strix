@@ -14,7 +14,7 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
     setSelectedPlan(plan);
   };
 
-  function addToCart() {
+  const addToCart = () => {
     const stripeKey =
       selectedPlan === "lite_plan"
         ? coachData.lite_stripe_price
@@ -35,65 +35,57 @@ export default function CoachDetail({ coachData }: { coachData: Product }) {
     localStorage.setItem("cartItems", JSON.stringify(cart));
 
     setCart(false);
-  }
+  };
 
   return (
-    <div className="flex h-80 w-[360px] flex-col items-center gap-7 rounded-lg border-2 border-solid border-[#B620E8] bg-white bg-opacity-10 p-5 text-white shadow-2xl md:w-[500px]">
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => handlePlanChange("lite_plan")}
-          type="button"
-          className={clsx(
-            "h-12 w-24 rounded-lg bg-[#AD1FDB] transition duration-500 hover:bg-blue-400",
-            selectedPlan == "lite_plan"
-              ? "cursor-not-allowed opacity-40"
-              : null,
-          )}
-          disabled={selectedPlan == "lite_plan"}
-        >
-          Lite plan
-        </button>
-        <button
-          onClick={() => handlePlanChange("standard_plan")}
-          type="button"
-          className={clsx(
-            "h-12 w-24 rounded-lg bg-[#7A169C] transition duration-500 hover:bg-blue-400",
-            selectedPlan == "standard_plan"
-              ? "cursor-not-allowed opacity-40"
-              : null,
-          )}
-          disabled={selectedPlan == "standard_plan"}
-        >
-          Standard plan
-        </button>
-        <button
-          onClick={() => handlePlanChange("extended_plan")}
-          type="button"
-          className={clsx(
-            "h-12 w-24 rounded-lg bg-[#480D5C] transition duration-500 hover:bg-blue-400",
-            selectedPlan == "extended_plan"
-              ? "cursor-not-allowed opacity-40"
-              : null,
-          )}
-          disabled={selectedPlan == "extended_plan"}
-        >
-          Extended plan
-        </button>
+    <div className="flex flex-col gap-5 rounded-lg border border-gray-700 bg-gray-900 p-5 text-white shadow-lg sm:max-w-md sm:p-8">
+      {/* Plan Selection */}
+      <div className="grid grid-cols-3 gap-2">
+        {["lite_plan", "standard_plan", "extended_plan"].map((plan) => (
+          <button
+            key={plan}
+            onClick={() => handlePlanChange(plan as PlanType)}
+            type="button"
+            className={clsx(
+              "h-10 rounded-md text-xs font-medium transition",
+              selectedPlan === plan
+                ? "bg-teal-600 text-white opacity-75"
+                : "bg-gray-700 text-gray-300 hover:bg-teal-500 hover:text-white",
+            )}
+            disabled={selectedPlan === plan}
+          >
+            {plan.replace("_", " ").toUpperCase()}
+          </button>
+        ))}
       </div>
-      <div className="line h-[1px] w-4/5 rounded-md border-t-2 border-[#B620E8] content-none"></div>
-      <h2 className="">{`${coachData[selectedPlan]}€/month`}</h2>
-      <div className="line h-[1px] w-4/5 rounded-md border-t-2 border-[#B620E8] content-none"></div>
-      <p className="">{coachData.description}</p>
+
+      {/* Divider and Price */}
+      <div className="flex flex-col items-center">
+        <div className="w-full border-t border-gray-700"></div>
+        <h2 className="m-2 text-2xl font-semibold text-teal-400">
+          {`${coachData[selectedPlan]}€/month`}
+        </h2>
+        <div className="w-full border-t border-gray-700"></div>
+      </div>
+
+      {/* Description */}
+      <p className="text-center text-sm text-gray-300">
+        {coachData.description}
+      </p>
+
+      {/* Add to Cart Button */}
       <button
         onClick={addToCart}
         type="button"
         className={clsx(
-          "h-10 w-28 rounded-lg bg-[#3648e4] transition duration-500 hover:bg-blue-400",
-          cart == false ? "cursor-not-allowed opacity-40" : null,
+          "h-10 w-full rounded-lg text-sm font-medium transition",
+          cart
+            ? "bg-teal-600 text-white hover:bg-teal-500"
+            : "cursor-not-allowed bg-gray-500 text-gray-300",
         )}
-        disabled={cart == false}
+        disabled={!cart}
       >
-        {cart == false ? "Added" : "Add to cart"}
+        {cart ? "Add to Cart" : "Added"}
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
 const { db } = require("@vercel/postgres");
-const { products } = require("../app/lib/placeholder-data.js");
+const { products } = require("../lib/placeholder-data");
 
 async function seedProducts(client) {
   try {
@@ -30,8 +30,8 @@ async function seedProducts(client) {
             INSERT INTO products (image, name, game, description, lite_plan, standard_plan, extended_plan, lite_stripe_price, standard_stripe_price, extended_stripe_price)
             VALUES (${product.image}, ${product.name},${product.game}, ${product.description}, ${product.lite_plan}, ${product.standard_plan}, ${product.extended_plan}, ${product.lite_stripe_price}, ${product.standard_stripe_price}, ${product.extended_stripe_price})
             ON CONFLICT (id) DO NOTHING;
-        `
-      )
+        `,
+      ),
     );
 
     console.log(`Seeded ${insertedProducts.length} products`);
@@ -47,16 +47,15 @@ async function seedProducts(client) {
 }
 
 async function main() {
-    const client = await db.connect();
-  
-    await seedProducts(client);
-    await client.end();
-  }
-  
-  main().catch((err) => {
-    console.error(
-      'An error occurred while attempting to seed the database:',
-      err,
-    );
-  });
-  
+  const client = await db.connect();
+
+  await seedProducts(client);
+  await client.end();
+}
+
+main().catch((err) => {
+  console.error(
+    "An error occurred while attempting to seed the database:",
+    err,
+  );
+});

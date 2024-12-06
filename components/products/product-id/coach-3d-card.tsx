@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Tilt from "@/components/ui/vanilla-tilt";
 
-export default async function Coach3dCard({
+export default function Coach3dCard({
   image,
   name,
   game,
@@ -11,31 +11,38 @@ export default async function Coach3dCard({
   game: string;
 }) {
   const options = {
-    max: 35,
-    startX: -20, // the starting tilt on the Y axis, in degrees.
-    gyroscope: false, // Boolean to enable/disable device orientation detection,
-
-    speed: 150,
+    max: 25,
+    startX: -20,
+    gyroscope: false,
+    speed: 300,
     glare: true,
-    "max-glare": 1,
+    "max-glare": 0.5,
   };
+
   return (
     <Tilt
       options={options}
-      className="flex h-96 w-72 flex-col items-center justify-center gap-2 rounded-lg bg-white bg-opacity-10 shadow-2xl"
+      className="flex h-[320px] w-[260px] flex-col items-center justify-center gap-4 rounded-lg bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 p-5 shadow-lg transition-transform hover:scale-105 sm:h-[360px] sm:w-[280px]"
     >
-      <div className="relative bottom-2 h-64 w-64">
+      {/* Image Section */}
+      <div className="relative h-44 w-44 sm:h-48 sm:w-48">
         <Image
           src={image}
           alt={name}
           fill={true}
           sizes="100wv"
-          className="rounded-full object-cover"
+          className="rounded-full border-2 border-white object-cover"
           priority={true}
         />
       </div>
-      <h2 className="text-center text-white">{name}</h2>
-      <h3 className="text-center text-white">{game}</h3>
+
+      {/* Text Section */}
+      <h2 className="mt-2 text-center text-lg font-bold text-white sm:text-xl">
+        {name}
+      </h2>
+      <h3 className="sm:text-md text-center text-sm font-medium text-teal-300">
+        {game}
+      </h3>
     </Tilt>
   );
 }

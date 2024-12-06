@@ -2,31 +2,42 @@ import { Product } from "@/lib/definition";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MainPageProduct({ product }: {product : Product}) {
+export default function MainPageProduct({ product }: { product: Product }) {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center w-5/6 max-w-xl h-auto md:h-96 m-2">
-      <Image
-        width={256}
-        height={384}
-        alt="coach-image"
-        className="object-cover w-full md:w-64 h-64 md:h-96 border-2 border-indigo-200 rounded-t-xl md:rounded-3xl"
-        src={product.image}
-      />
-      <div className="bg-purple-700 bg-opacity-80 backdrop-blur-sm w-full md:w-60 h-56 md:h-[90%] border-2 border-t-0 md:border-t-2 md:border-l-0 md:border-indigo-100 border-opacity-10 rounded-b-xl md:rounded-r-xl md:rounded-b-none relative flex flex-col items-start p-5 text-white duration-500 hover:bg-indigo-900 hover:border-indigo-400">
-        <h2 className="mb-2 text-xl font-bold">{product.name}</h2>
-        <h3 className="mb-2 text-lg text-indigo-100">{product.game}</h3>
-        <p className="mb-2">{product.description}</p>
-        <p className="mb-2 font-bold">
-          Starting from
-          <span className="text-2xl">{product.lite_plan}€</span>/month
-        </p>
-        <Link
-          className="bg-blue-600 rounded-full py-1 px-2 text-lg text-white cursor-pointer absolute bottom-5 right-5 transition duration-500 hover:bg-blue-400 hover:shadow-lg"
-          type="button"
-          href={`/products/${product.id}`}
-        >
-          View More
-        </Link>
+    <div className="m-4 flex h-auto w-full max-w-lg flex-col overflow-hidden rounded-lg border border-gray-700 bg-gray-800 shadow-md md:h-[24rem] md:flex-row">
+      {/* Image Section */}
+      <div className="h-48 w-full md:h-full md:w-1/2">
+        <Image
+          width={240}
+          height={320}
+          alt="coach-image"
+          className="h-full w-full object-cover"
+          src={product.image}
+        />
+      </div>
+
+      {/* Content Section */}
+      <div className="flex flex-col justify-between p-6 text-white md:w-1/2">
+        <div>
+          <h2 className="mb-2 text-lg font-bold">{product.name}</h2>
+          <h3 className="mb-4 text-sm text-indigo-400">{product.game}</h3>
+          <p className="mb-4 line-clamp-3 text-sm text-gray-300">
+            {product.description}
+          </p>
+          <p className="text-lg font-bold">
+            Starting from{" "}
+            <span className="text-xl text-blue-400">{product.lite_plan}€</span>
+            /month
+          </p>
+        </div>
+        <div className="mt-6 flex justify-center">
+          <Link
+            href={`/products/${product.id}`}
+            className="rounded-full bg-blue-600 px-6 py-2 text-sm font-medium text-white shadow-md transition-transform duration-200 hover:-translate-y-1 hover:scale-105 focus:translate-y-1 focus:scale-105 active:scale-95"
+          >
+            View More
+          </Link>
+        </div>
       </div>
     </div>
   );
